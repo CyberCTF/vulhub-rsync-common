@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://www.isoloom.com/schema/v1.json
+# Rsync Unauthorized Access (Vulhub, by phith0n and the Vulhub contributors) as an Isoloom spec:
+# Vulhub's rsync/common, vendored unchanged in app/ and built by its Dockerfile.
+# `isoloom generate`, then `isoloom run docker`.
+version: 1
+name: vulhub-rsync-common
+
+networks:
+  lab: { cidr: 10.60.64.0/24, internet: false }
+
+machines:
+  rsync:
+    networks: { lab: 10 }
+    services: [{ port: 873, name: rsync, publish: 873 }]
+    resources: { cpus: 1, memory_mb: 256 }
+    docker:
+      build: app
+
+checks:
+  - name: the rsync daemon answers
+    tcp: rsync:873
+    wait: 60
+  - name: the daemon greets with the rsync protocol and lists the src module
+    script: checks/modules.sh
+
+message: |
+  An rsync daemon listens on 127.0.0.1:{{ machines.rsync.services.0.publish }}. List its modules:
+  no password is asked.
