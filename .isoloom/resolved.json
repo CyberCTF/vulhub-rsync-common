@@ -94,7 +94,8 @@
       "vagrant": "needs `vm:` on rsync",
       "proxmox": "needs `vm:` on rsync",
       "cloud-vm": "needs `vm:` on rsync",
-      "external": "needs `external:` on rsync"
+      "external": "needs `external:` on rsync",
+      "cloud-services": "left out by `targets:`"
     }
   },
   "checks": {
