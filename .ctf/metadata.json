@@ -4,11 +4,5 @@
   "question": "Abuse the unauthenticated rsync module to read files, then get a shell on the server.",
   "category": "NETWORK",
   "difficulty": 2,
-  "evidence_kind": "SECRET",
-  "capabilities": [
-    "unauthenticated-access",
-    "rsync",
-    "arbitrary-file-write",
-    "cron-abuse"
-  ]
+  "evidence_kind": "SECRET"
 }
