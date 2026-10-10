@@ -1,7 +1,7 @@
 {
   "title": "Rsync Unauthorized Access",
   "description": "An rsync 3.1.2 daemon whose src module exports the whole file system, writable and without authentication, running as root, with cron in the same container.",
-  "question": "Abuse the unauthenticated rsync module to read files, then get a shell on the server.",
+  "question": "Abuse the unauthenticated rsync module to read files on the server, including /ctf/flag.",
   "category": "NETWORK",
   "difficulty": 2,
   "evidence_kind": "SECRET"

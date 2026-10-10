@@ -1,0 +1,51 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "List the rsync modules, read /ctf/flag through the unauthenticated share, then get a shell.",
+      "check": {
+        "evidence": "SECRET",
+        "format": "FLAG{%s}"
+      },
+      "dev": "FLAG{dev-vulhub-rsync-common}",
+      "hints": [
+        "Ask the daemon for its module list: no password is required. One module exports the whole file system.",
+        "The module is writable and the daemon runs as root; cron runs in the same container. The flag is at /ctf/flag."
+      ],
+      "steps": [
+        {
+          "key": "port",
+          "title": "Identify the service",
+          "prompt": "Which protocol and port does the daemon serve? (name and port)",
+          "check": {
+            "answer_regex": "(?i)rsync.*873|873.*rsync"
+          }
+        },
+        {
+          "key": "module",
+          "title": "List the modules",
+          "prompt": "Which module does the daemon export without a password? (module name)",
+          "check": {
+            "answer": [
+              "src"
+            ]
+          }
+        },
+        {
+          "key": "class",
+          "title": "Name the weakness",
+          "prompt": "Which weakness class is this? (two words)",
+          "check": {
+            "answer": [
+              "unauthorized access",
+              "unauthenticated access",
+              "missing authentication",
+              "no authentication"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
