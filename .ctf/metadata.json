@@ -1,8 +1,11 @@
 {
+  "project_name": "cyberlabs-vulhub-rsync-common",
+  "slug": "vulhub-rsync-common",
   "title": "Rsync Unauthorized Access",
   "description": "An rsync 3.1.2 daemon whose src module exports the whole file system, writable and without authentication, running as root, with cron in the same container.",
-  "question": "Abuse the unauthenticated rsync module to read files on the server, including /ctf/flag.",
-  "category": "NETWORK",
+  "category": "network",
   "difficulty": 2,
-  "evidence_kind": "SECRET"
+  "evidence_kind": "SECRET",
+  "capabilities": [],
+  "question": "Abuse the unauthenticated rsync module to read files on the server, including /ctf/flag."
 }

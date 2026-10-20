@@ -19,7 +19,7 @@
           "title": "Identify the service",
           "prompt": "Which protocol and port does the daemon serve? (name and port)",
           "check": {
-            "answer_regex": "(?i)rsync.*873|873.*rsync"
+            "answer_regex": "rsync.*873|873.*rsync"
           }
         },
         {
